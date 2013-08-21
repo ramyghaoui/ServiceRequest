@@ -45,7 +45,7 @@
 	
 ?>
 
-		<form action="Testing.php" method="POST">
+		<form action="Register.php" method="POST">
 		Username:<br><input type="text" name="username" maxlength="20" value="<?php if(isset($username)){ echo $username; } ?>"><br>
 		Enter password:<br><input type="password" name="password"><br>
 		Re-enter password:<br><input type="password" name="re_password"><br>
