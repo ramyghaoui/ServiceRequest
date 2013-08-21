@@ -14,7 +14,6 @@
 			$query = "INSERT INTO `servicerequests`(`Requested_by`, `Urgency`, `ServiceType`, `Problem`, `Status`,`ReceivedDate`) VALUES ('".$Requested_by."','".$Urgency."','".$ServiceType."','".mysql_real_escape_string($Problem)."','Awaiting','".$Date."')";
 			if($query_run = mysql_query($query)){
 				echo "<script>alert('Form submitted');</script>";
-				//header('Location: Index.php');
 			}
 			else{
 				echo "<script>alert('Could not submit request');</script>";
