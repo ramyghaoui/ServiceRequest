@@ -82,7 +82,7 @@
 
 
 ?>
-
+		<input type="submit" name="Register" value="Register">
 	</form>
 
 <?php
