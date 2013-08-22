@@ -25,5 +25,14 @@
 			}
 		}
 	}
+	
+	function getfield($field1, $table, $field2, $condition){
+		$query = "SELECT `".$field1."` FROM `".$table."` WHERE `".$field2."`='".$condition."'";
+		if($query_run = mysql_query($query)){
+			if($query_result = mysql_result($query_run, 0, $field1)){
+				return $query_result;
+			}
+		}
+	}
 
 ?>
