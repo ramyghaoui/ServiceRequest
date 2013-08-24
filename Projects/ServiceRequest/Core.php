@@ -35,4 +35,20 @@
 		}
 	}
 
+	function fetchreport($query){
+		$query_run = mysql_query($query);
+		echo '<table>';
+		
+		while ($row = mysql_fetch_assoc($query_run, MYSQL_NUM)) {
+			echo '<tr>';
+			FOR ( $i=0; $i<mysql_num_fields($query_run); $i++){
+				echo '<td>'; 
+				echo $row[$i];
+				echo '<hr></td>';
+			}
+			echo '</tr>';
+		}
+		echo '</table>';
+	}
+
 ?>
