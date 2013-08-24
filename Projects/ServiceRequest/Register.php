@@ -5,6 +5,7 @@
 	
 	if(!loggedin()){
 		if(isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['re_password'])&&isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])){
+		
 			$username = $_POST['username'];
 			$password = $_POST['password'];
 			$re_password = $_POST['re_password'];
@@ -76,12 +77,13 @@
 
 			<input type="submit" name="Register" value="Register">
 		</form>
+		<a href="Index.php">Home</a><br>
 
 <?php
 
 	}
 	else if(loggedin()){
-		echo "<script>alert('You are already registered and logged in');</script>";
+		echo "<script>alert('You are already registered and logged in');  location.href = 'Index.php'; </script>";
 	}
 
 ?>

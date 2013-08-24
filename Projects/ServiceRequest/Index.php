@@ -6,7 +6,7 @@
 	if (loggedin()){
 		$firstname = getuserfield('FirstName');
 		$lastname = getuserfield('LastName');
-		echo 'Welcome '.$firstname.' '.$lastname.'! <a href="logout.php">Log out</a><br><a href="ServiceRequest.php">ServiceRequest</a><br>';
+		echo 'Welcome '.$firstname.' '.$lastname.'! <a href="logout.php">Log out</a><br><a href="Main.php">Go to Main</a>';
 		
 	}
 	else{

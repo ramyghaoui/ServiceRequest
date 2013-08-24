@@ -12,7 +12,7 @@
 			$ServiceType = $_POST['ServiceType'];
 			$Problem = $_POST['Problem'];
 			if(!empty($ID)&&!empty($Requested_by)&&!empty($Date)&&!empty($Urgency)&&!empty($Problem)){
-				$query = "INSERT INTO `servicerequests`(`Requested_by`, `Urgency`, `ServiceType`, `Problem`, `Status`,`ReceivedDate`) VALUES ('".$Requested_by."','".$Urgency."','".$ServiceType."','".mysql_real_escape_string($Problem)."','Awaiting','".$Date."')";
+				$query = "INSERT INTO `servicerequests`(`Requested_by`, `Urgency`, `ServiceType`, `Problem`, `Status`,`SubmittedDate`) VALUES ('".$Requested_by."','".$Urgency."','".$ServiceType."','".mysql_real_escape_string($Problem)."','Awaiting','".$Date."')";
 				if($query_run = mysql_query($query)){
 					echo "<script>alert('Form submitted');</script>";
 				}
@@ -34,6 +34,7 @@
 			Urgency:<br><input type="radio" name="Urgency" value="Low">Low</input>
 						<input type="radio" name="Urgency" value="Medium" checked=true>Medium</input>
 						<input type="radio" name="Urgency" value="High" >High</input><br><br>
+			Service Type:<br>
 
 <?php
 
@@ -47,15 +48,15 @@
 
 ?>
 
-			Problem:<br><textarea name="Problem" rows="5" cols="50" maxlength="255"/></textarea><br><br>
+			Problem:<br><textarea name="Problem" rows="5" cols="50" maxlength="255"></textarea><br><br>
 			<input type="submit" name="Send" value="Send">	
 		</form>
-		<a href="Index.php">Home</a><br>
+		<a href="Main.php">Back to Main</a><br>
 <?php
 
 	}
 	else{
-		echo 'Please <a href="Index.php">log in!</a>';
+		echo "<script>alert('Please log in!'); location.href = 'Index.php'; </script>";
 	}
 
 ?>
