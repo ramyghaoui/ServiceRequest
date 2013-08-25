@@ -39,12 +39,7 @@
 <?php
 
 			$query = "SELECT `ServiceType` FROM `servicetypes` ORDER BY `ServiceType`";
-			$query_run = mysql_query($query);
-			echo '<select name="ServiceType">';
-			while ($query_num_row = mysql_fetch_array($query_run)) {
-			   echo '<option value="'.$query_num_row['ID'].'">'.$query_num_row['ServiceType'].'</option>';
-			}
-			echo '</select><br><br>';
+			select($query, 'ServiceType');
 
 ?>
 

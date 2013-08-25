@@ -51,5 +51,14 @@
 		}
 		echo '</table>';
 	}
+	
+	function select($query, $value){
+		$query_run = mysql_query($query);
+		echo '<select name="$value">';
+		while ($query_num_row = mysql_fetch_array($query_run)){
+			echo '<option value="'.$query_num_row['ID'].'">'.$query_num_row[$value].'</option>';
+		}
+		echo '</select><br><br>';
+	}
 
 ?>

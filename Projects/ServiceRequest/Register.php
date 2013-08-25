@@ -57,21 +57,17 @@
 
 <?php
 
-		$query = "SELECT `Department` FROM `departments` ORDER BY `Department`";
-		$query_run = mysql_query($query);
-		echo '<select name="Department">';
-		while ($query_num_row = mysql_fetch_array($query_run)) {
-		   echo '<option value="'.$query_num_row['Department'].'">'.$query_num_row['Department'].'</option>';
-		}
-		echo '</select><br><br>Title:<br>';
+			$query = "SELECT `Department` FROM `departments` ORDER BY `Department`";
+			select($query, 'Department');
 
-		$query = "SELECT `Title` FROM `titles` ORDER BY `Title`";
-		$query_run = mysql_query($query);
-		echo '<select name="Title">';
-		while ($query_num_row = mysql_fetch_array($query_run)) {
-		   echo '<option value="'.$query_num_row['Title'].'">'.$query_num_row['Title'].'</option>';
-		}
-		echo '</select><br><br>';
+?>
+
+			Title:<br>
+
+<?php
+		
+			$query = "SELECT `Title` FROM `titles` ORDER BY `Title`";
+			select($query, 'Title');
 
 ?>
 
