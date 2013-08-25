@@ -7,11 +7,11 @@
 	
 		$department = 'Department';
 		$table = 'users';
-		$field = 'Username';
+		$field_username = 'Username';
 		$condition = getuserfield('Username');
 		
-		if(getfield($department, $table, $field, $condition)){
-			echo 'Okayyy';
+		if(getfield($department, $table, $field_username, $condition)=='IT'){
+			
 		}
 		else{
 			echo "<script>alert('This section is only available for IT Personnel'); location.href = 'Main.php'; </script>";
@@ -20,14 +20,15 @@
 ?>
 	
 		<form action="Solution.php" method="POST">
-			<input type="test" name="ID" value="ID" readonly><br>
-			Requested_by:<br><input type="text" name="Requested_by" value="<?php getfield('Username', 'users', $field, $condition); ?>" readonly><br><br>
-			Date:<br><input type="text" name="Date" value="Date" readonly><br><br>
+			ID:<br><input type="text" name="ID" value="<?php echo $_SESSION['user_id']; ?>" readonly><br><br>
+			Requested by:<br><input type="text" name="Requested_by" value="<?php getuserfield($field_username); ?>" readonly><br><br>
 			Urgency:<br><input type="text" name="Urgency" value="Urgency" readonly><br><br>
-			Requested_by:<br><input type="text" name="ServiceType" value="ServiceType" readonly><br><br>
+			Service Type:<br><input type="text" name="ServiceType" value="ServiceType" readonly><br><br>			
+			Submitted Date:<br><input type="text" name="Date" value="Date" readonly><br><br>
+			Status:<br><input type="text" name="Status" value="Status" readonly><br><br>
 			Problem:<br><textarea name="Problem" rows="5" cols="50" maxlength="255" readonly></textarea><br><br>
 			Action Taken:<br><textarea name="ActionTaken" rows="5" cols="50" maxlength="255"></textarea><br><br>
-			<input type="submit" name="Solved" value="Solved"/><input type="button" name="Pending" value="Pending" onclick="Pending()"/><input type="button" name="Next" value="Next" onclick="Next()"/>
+			<input type="button" name="In Progress" value="In Progress" onclick="In Progress()"/><input type="submit" name="Solved" value="Solved" onclick="Solved()"/><input type="button" name="Next" value="Next" onclick="Next()"/>
 		</form>
 		<a href="Main.php">Back to Main</a><br>
 
