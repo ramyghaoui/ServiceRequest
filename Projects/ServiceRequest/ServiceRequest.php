@@ -4,14 +4,14 @@
 	require 'Connect.php';
 	
 	if(loggedin()){
-		if(isset($_POST['ID'])&&isset($_POST['Requested_by'])&&isset($_POST['Date'])&&isset($_POST['Urgency'])&&isset($_POST['ServiceType'])&&isset($_POST['Problem'])){
+		if(isset($_POST['ID'])&&isset($_POST['Requested_by'])&&isset($_POST['Date'])&&isset($_POST['Urgency'])&&isset($_POST['ServiceType'])&&isset($_POST['ServiceType'])&&isset($_POST['Problem'])){
 			$ID = $_POST['ID'];
 			$Requested_by = $_POST['Requested_by'];
 			$Date = $_POST['Date'];
 			$Urgency = $_POST['Urgency'];
 			$ServiceType = $_POST['ServiceType'];
 			$Problem = $_POST['Problem'];
-			if(!empty($ID)&&!empty($Requested_by)&&!empty($Date)&&!empty($Urgency)&&!empty($Problem)){
+			if(!empty($ID)&&!empty($Requested_by)&&!empty($Date)&&!empty($Urgency)&&($ServiceType!='--Select Option--')&&!empty($Problem)){
 				$query = "INSERT INTO `servicerequests`(`Requested_by`, `Urgency`, `ServiceType`, `Problem`, `Status`,`SubmittedDate`) VALUES ('".$Requested_by."','".$Urgency."','".$ServiceType."','".mysql_real_escape_string($Problem)."','Awaiting','".$Date."')";
 				if($query_run = mysql_query($query)){
 					echo "<script>alert('Form submitted');</script>";
@@ -39,7 +39,9 @@
 <?php
 
 			$query = "SELECT `ServiceType` FROM `servicetypes` ORDER BY `ServiceType`";
-			select($query, 'ServiceType');
+			echo '<select name="ServiceType"><option value="--Select Option--">--Select Option--</option>';
+				echo select($query, 'ServiceType');
+			echo '</select><br><br>';
 
 ?>
 
