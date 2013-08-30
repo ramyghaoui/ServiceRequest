@@ -11,6 +11,7 @@
 			$Urgency = $_POST['Urgency'];
 			$ServiceType = $_POST['ServiceType'];
 			$Problem = $_POST['Problem'];
+
 			if(!empty($ID)&&!empty($Requested_by)&&!empty($Date)&&!empty($Urgency)&&($ServiceType!='--Select Option--')&&!empty($Problem)){
 				$query = "INSERT INTO `servicerequests`(`Requested_by`, `Urgency`, `ServiceType`, `Problem`, `Status`,`SubmittedDate`) VALUES ('".$Requested_by."','".$Urgency."','".$ServiceType."','".mysql_real_escape_string($Problem)."','Awaiting','".$Date."')";
 				if($query_run = mysql_query($query)){
@@ -30,7 +31,7 @@
 		<form action="ServiceRequest.php" method="POST">
 			<input type="hidden" name="ID" value="<?php echo $_SESSION['user_id']; ?>" readonly>
 			Requested_by:<br><input type="text" name="Requested_by" value="<?php echo getuserfield('Username'); ?>" readonly><br><br>
-			Date:<br><input type="text" name="Date" value="<?php echo date('d/m/Y g:i A', time()+10800); ?>" readonly><br><br>
+			Date:<br><input type="text" name="Date" value="<?php echo date('d-m-Y g:i A', time()+10800); ?>" readonly><br><br>
 			Urgency:<br><input type="radio" name="Urgency" value="Low">Low</input>
 						<input type="radio" name="Urgency" value="Medium" checked=true>Medium</input>
 						<input type="radio" name="Urgency" value="High" >High</input><br><br>
@@ -39,9 +40,7 @@
 <?php
 
 			$query = "SELECT `ServiceType` FROM `servicetypes` ORDER BY `ServiceType`";
-			echo '<select name="ServiceType"><option value="--Select Option--">--Select Option--</option>';
-				echo select($query, 'ServiceType');
-			echo '</select><br><br>';
+			echo select($query, 'ServiceType');
 
 ?>
 
