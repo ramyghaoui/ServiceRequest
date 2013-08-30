@@ -17,7 +17,6 @@
 						<div class="Head">
 							<form action="Reports.php" method="POST">
 								<input type="radio" name="Status" value="Awaiting" checked=true>Awaiting</input>
-								<input type="radio" name="Status" value="In Progress">In Progress</input>
 								<input type="radio" name="Status" value="Solved">Solved</input>
 								<input type="radio" name="Status" value="All">All</input>
 								<input type="submit" name="Fetch" value="Fetch" onclick=fetchreport()>
@@ -38,7 +37,7 @@
 			$field = 'Username';
 			$condition_username = getuserfield('Username');
 			$status = $_POST['Status'];
-			
+
 			if(getfield($department, $table, $field, $condition_username)=='IT'){
 				if($status == 'All'){
 					$query = "SELECT `ID`, `Requested_by`, `Urgency`, `ServiceType`, `Problem`, `Status`, `Solution`, `SubmittedDate`, `TimeCost` FROM `servicerequests` WHERE 1";
