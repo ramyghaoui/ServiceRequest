@@ -4,7 +4,7 @@
 	require 'Connect.php';
 	
 	if(!loggedin()){
-		if(isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['re_password'])&&isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])){
+		if(isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['re_password'])&&isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])&&isset($_POST['Department'])&&isset($_POST['Title'])){
 		
 			$username = $_POST['username'];
 			$password = $_POST['password'];
@@ -16,7 +16,7 @@
 			$department = $_POST['Department'];
 			$title = $_POST['Title'];
 			
-			if(!empty($username)&&!empty($password)&&!empty($re_password)&&!empty($firstname)&&!empty($lastname)&&!empty($email)){
+			if(!empty($username)&&!empty($password)&&!empty($re_password)&&!empty($firstname)&&!empty($lastname)&&!empty($email)&&($department!='--Select Option--')&&($title!='--Select Option--')){
 				if($password != $re_password){
 					echo "<script>alert('Passwords do not match!');</script>";
 				}
