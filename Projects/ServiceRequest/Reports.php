@@ -2,32 +2,40 @@
 
 	require 'Core.php';
 	require 'Connect.php';
+
+?>
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Reports Form</title>
+			<link rel="stylesheet" type="text/css" href="styling.css"/>
+		</head>
+		<body>
+			<h1>Welcome to Service Request Web Application</h1>
+			<h2>Please select report!</h2>
+
+<?php
 	
 	if(loggedin()){
 		echo 'Hello '.getuserfield('FirstName').' '.getuserfield('LastName').'! <a href="Main.php">Back to Main</a><br>';	
 
 ?>
 
-			<html>
-				<head>
-					<title>Reports</title>
-				</head>
-				<body>
-					<div class="Reports">
-						<div class="Head">
-							<form action="Reports.php" method="POST">
-								<input type="radio" name="Status" value="Awaiting" checked=true>Awaiting</input>
-								<input type="radio" name="Status" value="Solved">Solved</input>
-								<input type="radio" name="Status" value="All">All</input>
-								<input type="submit" name="Fetch" value="Fetch" onclick=fetchreport()>
-							</form>
-						</div>
-						<div class="Body">
-						
-						</div>
-					</div>
-				</body>
-			</html>
+			<div class="Reports">
+				<div class="Head">
+					<form action="Reports.php" method="POST">
+						<input type="radio" name="Status" value="Awaiting" checked=true>Awaiting</input>
+						<input type="radio" name="Status" value="Solved">Solved</input>
+						<input type="radio" name="Status" value="All">All</input>
+						<input type="submit" name="Fetch" value="Fetch" onclick=fetchreport()>
+					</form>
+				</div>
+				<div class="Body">	
+				</div>
+			</div>
+		</body>
+	</html>
 
 <?php
 
