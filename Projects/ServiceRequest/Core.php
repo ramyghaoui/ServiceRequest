@@ -37,7 +37,7 @@
 
 	function fetchreport($query){
 		$query_run = mysql_query($query);
-		echo '<table border="1" CELLPADDING="5"><tr>';
+		echo '<table id="tablereport"><tr>';
 		FOR ($i=0; $i<mysql_num_fields($query_run); $i++){
 			echo '<th>'.mysql_field_name($query_run, $i).'</th>';
 		}
@@ -52,9 +52,9 @@
 		echo '</table>';
 	}
 
-	function select($query, $value){
+	function select($query, $value, $class){
 		$query_run = mysql_query($query);
-		echo '<select name="'.$value.'"><option value="--Select Option--">--Select Option--</option>';
+		echo '<select class="'.$class.'" name="'.$value.'"><option value="--Select Option--">--Select Option--</option>';
 		while ($query_num_row = mysql_fetch_array($query_run)){
 			echo '<option value="'.$query_num_row[$value].'">'.$query_num_row[$value].'</option>';
 		}
