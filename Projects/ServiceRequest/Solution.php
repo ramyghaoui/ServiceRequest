@@ -29,20 +29,32 @@
 		}
 
 ?>
-	
-		<form action="Solution.php" method="POST">
-			ID:<br><input type="text" name="ID" value="<?php echo solution('ID'); ?>" readonly><br>
-			Requested by:<br><input type="text" name="Requested_by" value="<?php echo solution('Requested_by'); ?>" readonly><br>
-			Urgency:<br><input type="text" name="Urgency" value="<?php echo solution('Urgency'); ?>" readonly><br>
-			Status:<br><input type="text" name="Status" value="<?php echo solution('Status'); ?>" readonly><br>
-			Service Type:<br><input type="text" name="ServiceType" value="<?php echo solution('ServiceType'); ?>" readonly><br>
-			Submitted Date:<br><input type="text" name="Date" value="<?php echo solution('SubmittedDate'); ?>" readonly><br>
-			Problem:<br><textarea name="Problem" rows="5" cols="50" maxlength="255" readonly><?php echo solution('Problem'); ?></textarea><br>
-			Action Taken:<br><textarea name="Solution" rows="5" cols="50" maxlength="255"><?php echo solution('Solution'); ?></textarea><br><br>
-			<input type="submit" name="solved" value="Solved"/>
-		</form>
-		<a href="Reports.php">Back to Reports</a><br><br>
-		<a href="Main.php">Back to Main</a><br>
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Solution Form</title>
+			<link rel="stylesheet" type="text/css" href="styling.css"/>
+		</head>
+			<body>
+				<h1>Welcome to Service Request Web Application</h1>
+				<h2>Please submit a solution!</h2>
+				<form action="Solution.php" method="POST">
+					ID:<br><input class="inputfield" type="text" name="ID" value="<?php echo solution('ID'); ?>" readonly><br>
+					Requested by:<br><input class="inputfield" type="text" name="Requested_by" value="<?php echo solution('Requested_by'); ?>" readonly><br>
+					Urgency:<br><input class="inputfield" type="text" name="Urgency" value="<?php echo solution('Urgency'); ?>" readonly><br>
+					Status:<br><input class="inputfield" type="text" name="Status" value="<?php echo solution('Status'); ?>" readonly><br>
+					Service Type:<br><input class="inputfield" type="text" name="ServiceType" value="<?php echo solution('ServiceType'); ?>" readonly><br>
+					Submitted Date:<br><input class="inputfield" type="text" name="Date" value="<?php echo solution('SubmittedDate'); ?>" readonly><br>
+					Problem:<br><textarea class="inputfield" name="Problem" rows="5" cols="50" maxlength="255" readonly><?php echo solution('Problem'); ?></textarea><br>
+					Action Taken:<br><textarea class="inputfield" name="Solution" rows="5" cols="50" maxlength="255"><?php echo solution('Solution'); ?></textarea><br><br>
+					<input type="submit" name="solved" value="Solved"/>
+				</form>
+				<a href="Reports.php">Reports</a><br><br>
+				<a href="Main.php">Back to Main</a><br>
+			</body>
+	</html>
+
 
 <?php
 
