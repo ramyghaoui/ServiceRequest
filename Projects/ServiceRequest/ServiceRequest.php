@@ -28,26 +28,38 @@
 
 ?>
 
-		<form action="ServiceRequest.php" method="POST">
-			<input type="hidden" name="ID" value="<?php echo $_SESSION['user_id']; ?>" readonly>
-			Requested_by:<br><input type="text" name="Requested_by" value="<?php echo getuserfield('Username'); ?>" readonly><br><br>
-			Date:<br><input type="text" name="Date" value="<?php echo date('d-m-Y g:i A', time()+10800); ?>" readonly><br><br>
-			Urgency:<br><input type="radio" name="Urgency" value="Low">Low</input>
-						<input type="radio" name="Urgency" value="Medium" checked=true>Medium</input>
-						<input type="radio" name="Urgency" value="High" >High</input><br><br>
-			Service Type:<br>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Service Request Form</title>
+			<link rel="stylesheet" type="text/css" href="styling.css"/>
+		</head>
+		<body>
+			<h1>Welcome to Service Request Web Application</h1>
+			<h2>Please fill in a service request!</h2>
+			<form action="ServiceRequest.php" method="POST">
+				<input class="inputfield" type="hidden" name="ID" value="<?php echo $_SESSION['user_id']; ?>" readonly>
+				Requested_by:<br><input class="inputfield" type="text" name="Requested_by" value="<?php echo getuserfield('Username'); ?>" readonly><br><br>
+				Date:<br><input class="inputfield" type="text" name="Date" value="<?php echo date('d-m-Y g:i A', time()+10800); ?>" readonly><br><br>
+				Urgency:<br><input type="radio" name="Urgency" value="Low">Low</input>
+							<input type="radio" name="Urgency" value="Medium" checked=true>Medium</input>
+							<input type="radio" name="Urgency" value="High" >High</input><br><br>
+				Service Type:<br>
 
 <?php
 
-			$query = "SELECT `ServiceType` FROM `servicetypes` ORDER BY `ServiceType`";
-			echo select($query, 'ServiceType');
+					$query = "SELECT `ServiceType` FROM `servicetypes` ORDER BY `ServiceType`";
+					echo select($query, 'ServiceType', 'inputfield');
 
 ?>
 
-			Problem:<br><textarea name="Problem" rows="5" cols="50" maxlength="255"></textarea><br><br>
-			<input type="submit" name="Send" value="Send">	
-		</form>
-		<a href="Main.php">Back to Main</a><br>
+				Problem:<br><textarea class="inputfield" name="Problem" rows="5" cols="50" maxlength="255"></textarea><br><br>
+				<input class="inputfield" type="submit" name="Send" value="Send">	
+			</form>
+			<a href="Main.php">Back to Main</a><br>
+		</body>
+	</html>
+
 <?php
 
 	}
